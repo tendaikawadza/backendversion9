@@ -1,0 +1,70 @@
+jwt:
+  secret: mysupercomplexsecret
+server:
+  error:
+    whitelabel:
+      enabled: false
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/securecapita
+    password: caroline_654321
+    username: root
+    initialization-mode: always
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8DBDialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        globally_quoted_indentifiers: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    spring:
+      servlet:
+        multipart:
+          enabled: true
+          file-size-threshold: 2KB
+          max-file-size: 400MB
+          max-request-size: 400MB
+  sql:
+    init:
+      mode: never
+      continue-on-error: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: zimbabwejudiciarycommision@gmail.com
+    password: hbcm pcdk kcda offk
+    default-encoding: UTF-8
+    properties:
+      mail:
+        mime:
+          charset: UTF
+        smtp:
+          writetimeout: 40000
+          connectiontimeout: 40000
+          timeout: 10000
+          auth: true
+          starttls:
+            enable: true
+            required: true
+springdoc:
+  api-docs:
+    path: /kunal-api-docs
+  swagger-ui:
+    operationsSorter: method
+    filter: true
+    tagsSorter: alpha
+    tryItOutEnabled: true
+    path: /kunal-documentation
+kunal:
+  openapi:
+    dev-url: http://localhost:7070
+
+purchase:
+  query:
+    find:
+      all: select * from purchaserequestnew order by id LIMIT :limit OFFSET :offset
